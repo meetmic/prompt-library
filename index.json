@@ -524,6 +524,23 @@
       "body": "Write a project status update from the meeting transcript, for stakeholders who were not present.\n\n**Status** — one word: On track / At risk / Off track, followed by one sentence of justification from the meeting.\n\n**Progress since last update** — what was completed.\n\n**In progress** — what is being worked on now.\n\n**Risks & issues** — each with impact and the mitigation discussed, if any.\n\n**Decisions needed** — anything requiring a stakeholder decision, with the options presented.\n\n**Timeline changes** — any dates that moved, with the reason.\n\n**Next milestones** — the next 2–3 dates that matter.\n\nRules: Use only what is in the transcript. If the status was not explicitly stated, infer it only from the risks discussed and say \"inferred.\" Output Markdown, no preamble."
     },
     {
+      "slug": "retrospective",
+      "type": "summary",
+      "title": "Retrospective",
+      "tagline": "Went well, didn't, and what the team agreed to change.",
+      "roles": [
+        "engineering",
+        "marketing",
+        "founders",
+        "user-research"
+      ],
+      "icon": "clock",
+      "iconColor": "green",
+      "order": 15,
+      "source": "original; concept only from the common went-well / didn't / actions retro format",
+      "body": "You write up a team retrospective from the transcript.\n\n**Sprint or period** — what the retro covered, in one line, if stated.\n\n**What went well** — each point with who raised it and any example given. Keep the team's own wording.\n\n**What didn't go well** — each point with who raised it, the impact described, and the cause if one was named. Do not soften or merge distinct complaints.\n\n**Themes** — 2–4 threads that came up more than once across the two lists above.\n\n**Experiments & changes agreed** — what the team will do differently, as concrete lines: what, owner, when it will be reviewed. Only include changes the team actually agreed to, not suggestions that were floated and dropped.\n\n**Carried over** — items from a previous retro that were mentioned as still open.\n\n**Kudos** — thanks or shout-outs given to specific people.\n\nRules: Use only what is in the transcript; write \"Not discussed\" for empty sections. Do not rank items or add your own recommendations. Keep ticket numbers, system names, and metrics exactly as spoken. Output Markdown, no preamble."
+    },
+    {
       "slug": "decision-brief",
       "type": "summary",
       "title": "Decision brief",
@@ -647,6 +664,23 @@
       "order": 111,
       "source": "original.",
       "body": "You synthesise a single user research interview. From the transcript, produce:\n\n**Participant** — role, context, and relevant background as stated. No personal identifiers beyond what is needed.\n\n**Goals & jobs to be done** — what the participant is trying to accomplish, in their words.\n\n**Behaviours observed** — what they actually do today, step by step where described.\n\n**Pain points** — each one with a verbatim quote and a severity note if the participant indicated it.\n\n**Delights & what works** — what they like about current solutions.\n\n**Mental models & vocabulary** — terms the participant uses for things, especially where they differ from ours.\n\n**Themes** — 3–6 short tags summarising the interview, for cross-interview coding.\n\n**Moderator notes** — questions that were leading, missed, or worth adding next time.\n\nRules: Separate what the participant said from what the moderator suggested. Use only what is in the transcript; write \"Not discussed\" for empty sections. Output Markdown, no preamble."
+    },
+    {
+      "slug": "jobs-to-be-done",
+      "type": "summary",
+      "title": "Jobs to be done",
+      "tagline": "The job the customer is hiring for, in their words.",
+      "audience": "Product & UX researchers",
+      "roles": [
+        "user-research",
+        "founders",
+        "marketing"
+      ],
+      "icon": "lightbulb",
+      "iconColor": "cyan",
+      "order": 112,
+      "source": "original; JTBD framing (Christensen / Klement) is a public method, text is ours",
+      "body": "You synthesise a customer interview through a jobs-to-be-done lens.\n\n**Participant** — role and context as stated. No identifiers beyond what is needed.\n\n**Situation** — when and where the need shows up, in the participant's words. What triggers it.\n\n**Job statements** — each job as *When [situation], I want to [motivation], so I can [expected outcome]*. Build every statement only from things the participant said; quote the line it came from underneath. Up to 5.\n\n**Functional, emotional, social** — for each job, note which kind of progress the participant described, only where they made it explicit.\n\n**Current solution & workarounds** — what they use or do today, and what they said is wrong with it.\n\n**Push, pull, anxiety, habit** — forces mentioned: what pushes them away from the current way, what pulls them toward a new one, what worries them about switching, what keeps them where they are. Quote where possible.\n\n**Hiring & firing criteria** — what they said would make them adopt or drop a solution.\n\n**Moderator notes** — leading questions, gaps, and what to probe next time.\n\nRules: Separate what the participant said from what the moderator suggested. Do not invent jobs the participant did not describe. Use only what is in the transcript; write \"Not discussed\" for empty sections. Output Markdown, no preamble."
     },
     {
       "slug": "lecture-study-notes",
