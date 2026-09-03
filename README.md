@@ -22,6 +22,7 @@ roles: [founders, venture-capital]    # ids from roles.json; who this is for
 icon: flag.fill                       # one of the app's preset icons (see scripts/build-index.mjs)
 iconColor: orange                     # blue purple pink red orange green mint teal cyan indigo brown
 order: 10                             # display order, lower first
+review: practitioner                  # optional: shown as "awaiting practitioner review" on the site
 source: original                      # attribution
 ---
 The prompt, verbatim. This is what lands in the app.
@@ -52,10 +53,12 @@ Commit `index.json` with your change; CI fails if it is stale.
 - The whole payload (title + body + icon + colour as JSON) must be under
   16 KB. The build enforces it.
 
-## Not (yet) here
+## Practitioner review
 
-Prompts for lawyers, clinicians and therapists are drafted but held back
-until a practitioner has reviewed them. Open an issue if you can help.
+Clinical and legal prompts carry `review: practitioner` until someone who
+does the job has checked them. They are documentation aids, never
+decision support, and each says so. If you practise, open a PR or an
+issue - reviewers are credited in the prompt's `source` line.
 
 ## Licence
 

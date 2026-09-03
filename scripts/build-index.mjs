@@ -48,7 +48,7 @@ for (const file of readdirSync(PROMPTS).filter((f) => f.endsWith(".md")).sort())
 
   const { data, content } = matter(readFileSync(join(PROMPTS, file), "utf8"));
   const body = content.trim();
-  const { title, tagline, type, audience, icon, iconColor, order, source } = data;
+  const { title, tagline, type, audience, icon, iconColor, order, source, review } = data;
 
   for (const [k, v] of Object.entries({ title, tagline, type, icon, iconColor })) {
     if (typeof v !== "string" || !v.trim()) fail(`"${k}" is missing`);
@@ -60,6 +60,7 @@ for (const file of readdirSync(PROMPTS).filter((f) => f.endsWith(".md")).sort())
   if (!ICONS.has(icon)) fail(`icon "${icon}" is not one of the app's preset icons`);
   if (!COLORS.has(iconColor)) fail(`iconColor "${iconColor}" is not an app colour`);
   if (typeof order !== "number") fail(`"order" must be a number`);
+  if (review !== undefined && review !== "practitioner") fail(`"review" must be "practitioner" or absent`);
   if (typeof title === "string" && [...title.trim()].length > MAX_TITLE) fail(`title is over ${MAX_TITLE} characters`);
   if (/—/.test(`${title}${tagline}${audience ?? ""}`)) fail("title/tagline/audience must not contain an em dash");
   if (!body) fail("body is empty");
@@ -83,6 +84,7 @@ for (const file of readdirSync(PROMPTS).filter((f) => f.endsWith(".md")).sort())
     iconColor,
     order,
     ...(source ? { source: String(source) } : {}),
+    ...(review ? { review } : {}),
     body,
   });
 }
