@@ -1,0 +1,13 @@
+[
+  { "id": "sales", "label": "Sales" },
+  { "id": "marketing", "label": "Marketing" },
+  { "id": "hr", "label": "HR & recruiting" },
+  { "id": "user-research", "label": "Product & UX research" },
+  { "id": "engineering", "label": "Engineering" },
+  { "id": "founders", "label": "Founders" },
+  { "id": "venture-capital", "label": "Venture capital" },
+  { "id": "healthcare", "label": "Healthcare" },
+  { "id": "podcasting", "label": "Podcasting" },
+  { "id": "real-estate", "label": "Real estate" },
+  { "id": "students", "label": "Students" }
+]

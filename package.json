@@ -1,0 +1,15 @@
+{
+  "name": "@meetmic/prompt-library",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ready-made summary and dictation prompts for MeetMic, published as index.json",
+  "type": "module",
+  "license": "CC0-1.0",
+  "scripts": {
+    "build": "node scripts/build-index.mjs",
+    "check": "node scripts/build-index.mjs --check"
+  },
+  "devDependencies": {
+    "gray-matter": "^4.0.3"
+  }
+}
