@@ -8,6 +8,7 @@
  * icon from the app's preset picker, colour from its 11 names.
  */
 import { readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { execFileSync } from "node:child_process";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
@@ -40,6 +41,16 @@ const roleIds = new Set(roles.map((r) => r.id));
 
 const errors = [];
 const prompts = [];
+
+/** ISO date of the last commit touching a file, so the site can put a real lastmod in its sitemap. */
+function lastCommitDate(relPath) {
+  try {
+    const out = execFileSync("git", ["log", "-1", "--format=%cI", "--", relPath], { cwd: ROOT, encoding: "utf8" }).trim();
+    return out ? out.slice(0, 10) : undefined;
+  } catch {
+    return undefined;
+  }
+}
 
 for (const file of readdirSync(PROMPTS).filter((f) => f.endsWith(".md")).sort()) {
   const slug = file.slice(0, -3);
@@ -85,6 +96,7 @@ for (const file of readdirSync(PROMPTS).filter((f) => f.endsWith(".md")).sort())
     order,
     ...(source ? { source: String(source) } : {}),
     ...(review ? { review } : {}),
+    ...(() => { const d = lastCommitDate(`prompts/${file}`); return d ? { updatedAt: d } : {}; })(),
     body,
   });
 }
